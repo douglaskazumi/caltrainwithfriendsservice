@@ -23,7 +23,7 @@ function login(req, res) {
 
   pg.connect(CONNECT_STR, function(err, client, done) {
     var stream = client.query(copyFrom('COPY agency FROM STDIN'));
-    var fileStream = fs.createReadStream('agency.txt')
+    var fileStream = fs.createReadStream('../data/agency.txt')
     fileStream.on('error', done);
     fileStream.pipe(stream).on('finish', done).on('error', done);
   });
