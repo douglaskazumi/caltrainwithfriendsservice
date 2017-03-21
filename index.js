@@ -12,6 +12,7 @@ app.set("port", process.env.PORT || 3000);
 // API
 var loginapi = require("./api/loginapi");
 app.post("/login", loginapi.login);
+app.get("/getData", loginapi.getData);
 
 
 app.listen(app.get("port"), () => {
