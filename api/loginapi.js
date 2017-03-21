@@ -4,6 +4,7 @@ var util = require("../util");
 var fs = require('fs');
 var pg = require('pg');
 var copyFrom = require('pg-copy-streams').from;
+var CONNECT_STR = "postgres://fynagptazuhshp:cd46bfaf49d11c7d8ddc88b20748e14bf9f6ee57eb9a8ca1ee4ed12319956742@ec2-23-21-213-202.compute-1.amazonaws.com:5432/dc70sfo9r0d4rs";
 
 module.exports = {
   login: login
