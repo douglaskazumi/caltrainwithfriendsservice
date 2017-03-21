@@ -1,0 +1,23 @@
+{
+  "name": "caltrainwithfriends",
+  "version": "1.0.0",
+  "description": "CaltrainWithFriends service",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "monitor": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/douglaskazumi/caltrainwithfriendsservice"
+  },
+  "private": false,
+  "dependencies": {
+    "body-parser": "^1.16.0",
+    "express": "^4.14.0",
+    "express-session": "^1.7.6"
+  },
+  "devDependencies": {
+    "nodemon": "^1.11.0"
+  }
+}
