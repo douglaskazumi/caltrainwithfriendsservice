@@ -25,7 +25,7 @@ function login(req, res) {
   pg.connect(CONNECT_STR, function(err, client, done) {
     client.query('CREATE TABLE agency(agency_id VARCHAR(40) PRIMARY KEY, agency_name VARCHAR(40),agency_url VARCHAR(40),agency_timezone VARCHAR(40),agency_lang VARCHAR(40),agency_phone VARCHAR(40))').on('end', () => { client.end(); });
     var stream = client.query(copyFrom('COPY agency FROM STDIN'));
-    var fileStream = fs.createReadStream('../data/agency.txt')
+    var fileStream = fs.createReadStream('./data/agency.txt')
     fileStream.on('error', done);
     fileStream.pipe(stream).on('finish', done).on('error', done);
   });
