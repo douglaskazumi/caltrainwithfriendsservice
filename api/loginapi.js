@@ -51,10 +51,10 @@ function login(req, res) {
 
 function getData(req, res) {
   pg.connect(CONNECT_STR, function(err, client, done) {
-    var stream = client.query('SELECT * FROM agency');
-
-    res.json({
-      data: stream
+    var stream = client.query('SELECT * FROM agency',function(err, result){
+      res.json({
+        data: result.rows
+      });
     });
   });
 }
