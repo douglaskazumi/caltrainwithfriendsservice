@@ -13,7 +13,7 @@ app.set("port", process.env.PORT || 3000);
 var loginapi = require("./api/loginapi");
 app.post("/login", loginapi.login);
 app.get("/getData", loginapi.getData);
-
+app.get("/createTable", loginapi.createTable);
 
 app.listen(app.get("port"), () => {
   console.log(`Listening on port ${app.get("port")}...`);
