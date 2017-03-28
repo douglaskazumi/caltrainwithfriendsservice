@@ -13,6 +13,9 @@ app.set("port", process.env.PORT || 3000);
 var gtfsapi = require("./api/gtfsapi");
 app.get("/updateData", gtfsapi.updateData);
 
+var caltrain = require("./api/caltrain");
+app.get("/stations", caltrain.getStations);
+
 app.listen(app.get("port"), () => {
   console.log(`Listening on port ${app.get("port")}...`);
 });

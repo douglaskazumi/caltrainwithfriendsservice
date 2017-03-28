@@ -4,7 +4,8 @@ module.exports = {
   formatAMPM: formatAMPM,
   sleep: sleep,
   getDateOnly: getDateOnly,
-  prettyPrint: prettyPrint
+  prettyPrint: prettyPrint,
+  uniqueBy: uniqueBy
 };
 
 function formatAMPM(date) {
@@ -35,4 +36,12 @@ function prettyPrint(object, tag) {
   console.log(">>>>>>> " + tag + " >>>>>>>>>>");
   console.log(JSON.stringify(object, null, 2));
   console.log("-------END " + tag + " ------");
+}
+
+function uniqueBy(a, key) {
+  var seen = {};
+  return a.filter(function(item) {
+    var k = key(item);
+    return seen.hasOwnProperty(k) ? false : (seen[k] = true);
+  });
 }
