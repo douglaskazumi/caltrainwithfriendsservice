@@ -5,6 +5,7 @@ var app = require("express")();
 var bodyParser = require("body-parser");
 var session = require('express-session');
 const mongoose = require('mongoose');
+var Router = require('./router');
 var config = {
 	mongoUrl: 'mongodb://heroku_qlj2qlvm:lujsle7k5gqhkqbc6101ckev7v@ds137230.mlab.com:37230/heroku_qlj2qlvm',
 	agencies: [{
@@ -23,14 +24,7 @@ mongoose.connection.on("connected", function(ref) {
 	}));
 	app.set("port", process.env.PORT || 3000);
 
-	// API
-	var gtfsapi = require("./api/gtfsapi");
-	app.get("/updateData", function(req, res) {
-		gtfsapi.updateData(req, res, config);
-	});
-
-	var caltrain = require("./api/caltrain");
-	app.get("/stations", caltrain.getStations);
+	var router = new Router(app, config);
 
 	app.listen(app.get("port"), () => {
 		console.log(`Listening on port ${app.get("port")}...`);
